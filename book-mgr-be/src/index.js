@@ -18,3 +18,4 @@ app.use((ctx)=>{
 app.listen(3000,()=>{
     console.log('启动成功','http://localhost:3000');
 })
+console.log('1112233')
