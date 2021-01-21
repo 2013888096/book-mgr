@@ -1,21 +1,25 @@
 const Koa = require('koa');
+const koaBody = require('koa-body');
+const Body = require('koa-body');
+// 注册schema 需要在 router流程之前
+const {connect} = require('./db');
+const registerRouters = require('./routers');
+
+// 导入跨域解决包
+const cors = require('@koa/cors');
 
 const app = new Koa();
 
-// context = ctx
-// app.use 充当中间件 每次请求都会执行一次
-// context上下文 -- 当前请求的详细信息
-app.use((ctx)=>{
-    const { path ='/' } = ctx;
-    if(path === '/user'){
-        ctx.body = '返回用户信息'
-    }
-    if(path ==='/admin'){
-        ctx.body = '返回后台信息 '
-    }
-});
+// 数据库连接成功后 在启动服务
+connect().then(()=>{
+    app.use(cors())
+    app.use(koaBody());
 
-app.listen(3000,()=>{
-    console.log('启动成功','http://localhost:3000');
-})
-console.log('1112233')
+    registerRouters(app);
+
+
+    app.listen(3000,()=>{ 
+        console.log('服务启动成功','http://localhost:3000');
+    })
+});  
+
