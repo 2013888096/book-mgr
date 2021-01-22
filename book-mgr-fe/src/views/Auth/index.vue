@@ -12,7 +12,8 @@
                     tab="登录">
           <div class="item">
             <a-input size="large"
-                     placeholder="账户">
+                     placeholder="账户"
+                     v-model:value="loginForm.account">
               <template #prefix>
                 <UserOutlined />
               </template>
@@ -20,7 +21,8 @@
           </div>
           <div class="item">
             <a-input size="large"
-                     placeholder="密码">
+                     placeholder="密码"
+                     v-model:value="loginForm.password">
               <template #prefix>
                 <LockOutlined />
               </template>
@@ -31,7 +33,8 @@
             <a href="">忘记密码</a>
           </div>
           <div class="item">
-            <a-button size="large"
+            <a-button @click="login"
+                      size="large"
                       type="primary">登入</a-button>
           </div>
         </a-tab-pane>
@@ -57,7 +60,8 @@
           </div>
           <div class="item">
             <a-input size="large"
-                     placeholder="邀请码">
+                     placeholder="邀请码"
+                     v-model:value="regForm.inviteCode">
               <template #prefix>
                 <MailOutlined />
               </template>

@@ -1,5 +1,6 @@
 // require 可以执行一个文件
 require('./Schemas/User');
+require('./Schemas/InviteCode');
 const mongoose = require('mongoose');
 
 
