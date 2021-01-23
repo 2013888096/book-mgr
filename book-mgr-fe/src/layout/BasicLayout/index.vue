@@ -15,7 +15,7 @@
     <div class="app-header-placeholder"></div>
     <div class="app-content">
       <div class="left">
-        <app-nav></app-nav>
+        <app-nav />
       </div>
       <div class="right">
         <router-view />
