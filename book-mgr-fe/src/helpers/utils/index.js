@@ -17,7 +17,6 @@ export const result = (response,authShowErrorMsg = true)=>{
       if(data.code === 0){
         callback(data,response);
       }
-
       return this;
     },
     finally(callback){
@@ -26,4 +25,22 @@ export const result = (response,authShowErrorMsg = true)=>{
       return this;
     }
   }
+}
+
+export const clone = (obj)=>{
+  return JSON.parse(JSON.stringify(obj));
+}
+
+export const formatTimestamp = (ts)=>{
+  const date = new Date(Number(ts));
+  const YYYY = date.getFullYear();
+  const MM = date.getMonth();
+  const DD = date.getDate();
+
+  const hh = date.getHours();
+  const mm = date.getSeconds();
+  const ss = date.getSeconds();
+  return `${YYYY}-${MM}-${DD} ${hh}:${mm}:${ss}`;
+
+
 }

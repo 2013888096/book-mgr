@@ -7,5 +7,6 @@
 .space-between {
   display: flex;
   justify-content: space-between;
+  height: 50px;
 }
 </style>
