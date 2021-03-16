@@ -10,6 +10,7 @@ const defaultFormData = {
     author:'',
     publishDate:0,
     classify:'',
+    count:'',
 }
 
 export default defineComponent({
@@ -26,9 +27,9 @@ export default defineComponent({
       const form = clone(addForm);
       form.publishDate = addForm.publishDate.valueOf();
 
-      console.log(form);
+
       const res = await book.add(form);
-      console.log(res);
+
       result(res)
         .success((d,{data})=>{
             // 复制默认空数据对象 (达到重置效果)
